@@ -1,0 +1,20 @@
+version: "3"
+services:
+  mysql:
+    image: "mysql:5.7"
+    container_name: koala-mysql
+    volumes:
+      - db:/var/lib/mysql
+      - ./docker/provision/mysql/init:/docker-entrypoint-initdb.d
+    ports:
+      - "3306:3306"
+    environment:
+      TZ: "UTC"
+      MYSQL_ROOT_PASSWORD: "koala-admin"
+      MYSQL_USER: "koala-aws"
+      MYSQL_PASSWORD: "koala-pass"
+      MYSQL_DATABASE: "koala-aws"
+volumes:
+  db:
+    labels:
+      koala-aws:

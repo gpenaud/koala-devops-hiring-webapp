@@ -1,6 +1,9 @@
 {
   "name": "koala-aws-app",
   "private": true,
+  "engines": {
+    "node": ">=14.0.0 <15"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -10,7 +13,8 @@
   "dependencies": {
     "next": "12.0.10",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "serverless-mysql": "^1.5.4"
   },
   "devDependencies": {
     "eslint": "8.8.0",
