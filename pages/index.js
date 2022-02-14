@@ -4,10 +4,11 @@ import { excuteQuery } from "../lib/db";
 import styles from "../styles/Home.module.css";
 
 export async function getServerSideProps() {
-  const articles = await excuteQuery("SELECT * FROM articles", []);
+  const { articles, error } = await excuteQuery("SELECT * FROM articles", []);
 
   return {
     props: {
+      error,
       articles: articles.map((article) => ({
         id: article.id,
         title: article.title,
@@ -18,7 +19,7 @@ export async function getServerSideProps() {
   };
 }
 
-export default function Home({ articles }) {
+export default function Home({ error, articles }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -40,24 +41,32 @@ export default function Home({ articles }) {
           Welcome to <b>Koala AWS APP</b>
         </h1>
 
-        <p className={styles.description}>
-          We have
-          <code className={styles.code}>{articles.length} articles</code>!
-        </p>
+        {error ? (
+          <p className={styles.description}>
+            <code className={styles.code}>{error}</code>
+          </p>
+        ) : (
+          <>
+            <p className={styles.description}>
+              We have
+              <code className={styles.code}>{articles.length} articles</code>!
+            </p>
 
-        <div className={styles.grid}>
-          {articles.map((article) => (
-            <a
-              key={article.id}
-              href="https://nextjs.org/docs"
-              className={styles.card}
-            >
-              <h2>{article.title}</h2>
-              <p>{article.content}</p>
-              <time>{article.date}</time>
-            </a>
-          ))}
-        </div>
+            <div className={styles.grid}>
+              {articles.map((article) => (
+                <a
+                  key={article.id}
+                  href="https://nextjs.org/docs"
+                  className={styles.card}
+                >
+                  <h2>{article.title}</h2>
+                  <p>{article.content}</p>
+                  <time>{article.date}</time>
+                </a>
+              ))}
+            </div>
+          </>
+        )}
       </main>
     </div>
   );
