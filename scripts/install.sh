@@ -2,11 +2,11 @@
 set -e
 
 # update instance
-apt update -y
+apt -y update
 
 # install nodejs
 curl -silent --location https://deb.nodesource.com/setup_14.x | sudo bash -
-apt install -y nodejs
+apt -y install nodejs
 
 # install pm2 module globaly
 npm install -g pm2
