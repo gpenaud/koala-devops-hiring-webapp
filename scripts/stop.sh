@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-cd ~/node
+cd /home/ubuntu/webapp
 pm2 stop webapp || true
