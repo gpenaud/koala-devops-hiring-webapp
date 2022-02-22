@@ -5,7 +5,7 @@ var SimpleDeployment = require("codedeploy-scripts").SimpleDeployment;
 var deployment = new SimpleDeployment({
     appName: "webapp",
     nodePort: "3000",
-    serverScript: "pages/_app.js",
+    serverScript: "pages/index.js",
     domains: "development-webapp-elb-1359539586.eu-west-1.elb.amazonaws.com",
     // files in these folders will be served from nginx without calling the node server
     buildFolder: "build",
