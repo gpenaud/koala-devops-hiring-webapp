@@ -1,9 +1,13 @@
 #!/usr/bin/env bash
 set -e
 
-cd /home/ubuntu/webapp
-rm -rf node_modules
+# export environment variables
+export $(cat .env.development | xargs)
 
+cd /home/ubuntu/${APP_NAME}
+
+# manage npm dependencies and running
+rm -rf node_modules
 npm install
 npm run build
 
@@ -22,5 +26,5 @@ npm run build
 # # add node to startup
 # hasRc=`grep "su -l $USER" /etc/rc.local | cat`
 # if [ -z "$hasRc" ]; then
-#     sudo sh -c "echo 'su -l $USER -c \"cd /home/ubuntu/webapp;sh ./run.sh\"' >> /etc/rc.local"
+#     sudo sh -c "echo 'su -l $USER -c \"cd /home/ubuntu/${APP_NAME};sh ./run.sh\"' >> /etc/rc.local"
 # fi

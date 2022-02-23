@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
-cd /home/ubuntu/webapp
-pm2 stop webapp || true
+
+# export environment variables
+export $(cat .env.development | xargs)
+
+cd /home/ubuntu/${APP_NAME}
+pm2 stop ${APP_NAME} || true

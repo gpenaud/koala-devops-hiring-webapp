@@ -15,12 +15,15 @@ permissions:
 hooks:
   BeforeInstall:
   - location: scripts/install.sh
-    timeout: 300
+    timeout: 120
     runas: ubuntu
   ApplicationStart:
   - location: scripts/run.sh
     timeout: 120
     runas: ubuntu
+  - location: scripts/nginx.sh
+    timeout: 120
+    runas: root
   ApplicationStop:
   - location: scripts/stop.sh
     timeout: 120
