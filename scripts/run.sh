@@ -5,4 +5,4 @@ if [ ! -z "$DEPLOYMENT_GROUP_NAME" ]; then
 fi
 
 cd /home/ubuntu/webapp
-pm2 start /home/ubuntu/webapp -n webapp -i 0
+pm2 start npm --name webapp -i 0 -- start

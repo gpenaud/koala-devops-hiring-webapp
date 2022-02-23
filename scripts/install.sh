@@ -1,13 +1,26 @@
 #!/usr/bin/env bash
 set -e
 
-# update instance
-apt-get -y update
+cd /home/ubuntu/webapp
+rm -rf node_modules
 
-# install nodejs
-curl -silent --location https://deb.nodesource.com/setup_14.x | sudo bash -
-apt-get -y install nodejs
+npm install
+npm run build
 
-# install pm2 module globaly
-npm install -g pm2
-pm2 update
+# # setup NODE_ENV
+# if [ ! -z "$DEPLOYMENT_GROUP_NAME" ]; then
+#     export NODE_ENV=$DEPLOYMENT_GROUP_NAME
+#
+#     hasEnv=`grep "export NODE_ENV" ~/.bash_profile | cat`
+#     if [ -z "$hasEnv" ]; then
+#         echo "export NODE_ENV=$DEPLOYMENT_GROUP_NAME" >> ~/.bash_profile
+#     else
+#         sed -i "/export NODE_ENV=\b/c\export NODE_ENV=$DEPLOYMENT_GROUP_NAME" ~/.bash_profile
+#     fi
+# fi
+#
+# # add node to startup
+# hasRc=`grep "su -l $USER" /etc/rc.local | cat`
+# if [ -z "$hasRc" ]; then
+#     sudo sh -c "echo 'su -l $USER -c \"cd /home/ubuntu/webapp;sh ./run.sh\"' >> /etc/rc.local"
+# fi
