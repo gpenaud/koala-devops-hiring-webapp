@@ -7,9 +7,9 @@ export $(cat /home/ubuntu/.env | xargs)
 cd /home/ubuntu/${APP_NAME}
 
 # manage npm dependencies and running
-rm -rf node_modules
-npm install
-npm run build
+sudo rm -rf node_modules
+sudo npm install
+sudo npm run build
 
 # # setup NODE_ENV
 # if [ ! -z "$DEPLOYMENT_GROUP_NAME" ]; then

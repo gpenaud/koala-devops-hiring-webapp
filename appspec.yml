@@ -15,8 +15,8 @@ permissions:
 hooks:
   BeforeInstall:
   - location: scripts/install.sh
-    timeout: 300
-    runas: root
+    timeout: 600
+    runas: ubuntu
   ApplicationStart:
   - location: scripts/run.sh
     timeout: 120
