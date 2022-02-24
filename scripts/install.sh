@@ -4,7 +4,7 @@ set -e
 # export environment variables
 export $(cat /home/ubuntu/.env | xargs)
 
-# cd /home/ubuntu/${APP_NAME}
+cd /home/ubuntu/${APP_NAME}
 
 # manage npm dependencies and running
 sudo rm -rf node_modules
