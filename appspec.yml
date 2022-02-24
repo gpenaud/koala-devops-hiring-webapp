@@ -3,10 +3,10 @@ os: linux
 
 files:
 - source: /
-  destination: /home/ubuntu/webapp/
+  destination: /home/ubuntu/
   overwrite: true
 permissions:
-- object: /home/ubuntu/webapp
+- object: /home/ubuntu
   owner: ubuntu
   group: ubuntu
   type:
