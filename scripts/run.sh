@@ -7,5 +7,5 @@ if [ ! -z "$DEPLOYMENT_GROUP_NAME" ]; then
  export NODE_ENV=$DEPLOYMENT_GROUP_NAME
 fi
 
-cd /home/ubuntu/${APP_NAME}
+# cd /home/ubuntu/${APP_NAME}
 pm2 start npm --name ${APP_NAME} -i 0 -- start
