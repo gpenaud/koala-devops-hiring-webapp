@@ -2,7 +2,7 @@
 set -e
 
 # export environment variables
-export $(cat .env.development | xargs)
+export $(cat /home/ubuntu/.env | xargs)
 
 cd /home/ubuntu/${APP_NAME}
 

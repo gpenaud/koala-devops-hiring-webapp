@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # export environment variables
-export $(cat .env.development | xargs)
+export $(cat /home/ubuntu/.env | xargs)
 
 if [ ! -z "$DEPLOYMENT_GROUP_NAME" ]; then
  export NODE_ENV=$DEPLOYMENT_GROUP_NAME

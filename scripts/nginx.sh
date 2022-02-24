@@ -2,7 +2,7 @@
 set -e
 
 # export environment variables
-export $(cat .env.development | xargs)
+export $(cat /home/ubuntu/.env | xargs)
 
 # create nginx upstream
 rm -rf \
@@ -11,7 +11,7 @@ rm -rf \
 
   cat > /etc/nginx/sites-available/${APP_NAME}.conf <<EOF
 server {
-  server_name   ${DOMAIN_NAME};
+  server_name   ${APP_DOMAIN};
 
   location / {
     proxy_pass             http://127.0.0.1:${APP_PORT};
